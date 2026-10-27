@@ -16,7 +16,11 @@ if errorlevel 1 (
   pause
   exit /b 1
 )
+<<<<<<< HEAD
 start "" "%~dp0build\mingw\runner\dart_project.exe"
 
 
 //Git test
+=======
+start "" "%~dp0build\mingw\runner\dart_project.exe"
+>>>>>>> 66dfac4e8e78111e90f9bc9af8cc39e00edfc4f3

@@ -4,7 +4,11 @@ import 'dart:io';
 import '../models/study_data.dart';
 
 class StudyRepository {
+<<<<<<< HEAD
   StudyRepository({this._directory});
+=======
+  StudyRepository({Directory? directory}) : _directory = directory;
+>>>>>>> 66dfac4e8e78111e90f9bc9af8cc39e00edfc4f3
 
   static const fileName = 'studymate.v3.json';
 
