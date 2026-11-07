@@ -6,8 +6,8 @@ $flutterBat = $null
 $flutterCmd = Get-Command flutter -ErrorAction SilentlyContinue
 if ($flutterCmd) {
   $flutterBat = $flutterCmd.Source
-} elseif (Test-Path 'C:\tools\flutter\bin\flutter.bat') {
-  $flutterBat = 'C:\tools\flutter\bin\flutter.bat'
+} elseif (Test-Path 'C:\src\flutter\bin\flutter.bat') {
+  $flutterBat = 'C:\src\flutter\bin\flutter.bat'
 }
 if (-not $flutterBat) {
   Write-Host 'Flutter was not found. Install it and add it to PATH:'

@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:dart_project/data/study_repository.dart';
 import 'package:dart_project/main.dart';
+import 'package:dart_project/learn/learn_controller.dart';
+import 'package:dart_project/learn/learn_repository.dart';
 import 'package:dart_project/models/study_data.dart';
 import 'package:dart_project/state/study_controller.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +17,12 @@ void main() {
       StudyRepository(directory: Directory.systemTemp.createTempSync('usoum')),
     );
     await controller.init();
-    await tester.pumpWidget(StudyMateApp(controller: controller));
+    final learn = LearnController(
+      LearnRepository(directory: Directory.systemTemp.createTempSync('usoum_learn')),
+    );
+    await learn.init();
+    await learn.register('Test', 'pass1234');
+    await tester.pumpWidget(StudyMateApp(controller: controller, learn: learn));
 
     expect(find.text('Գլխավոր'), findsWidgets);
     expect(find.text('Վեկտորական տարածություն'), findsOneWidget);

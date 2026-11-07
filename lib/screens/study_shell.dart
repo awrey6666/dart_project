@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../learn/learn_page.dart';
+import '../learn/profile_page.dart';
 import 'dashboard_page.dart';
 import 'calendar_page.dart';
 import 'homework_page.dart';
@@ -26,8 +28,9 @@ class _StudyShellState extends State<StudyShell> {
       CalendarPage(),
       HomeworkPage(),
       GradesPage(),
+      LearnPage(),
     ];
-    const titles = ['Գլխավոր', 'Առարկաներ', 'Օրացույց', 'Աշխատանք', 'Արդյունքներ'];
+    const titles = ['Գլխավոր', 'Առարկաներ', 'Օրացույց', 'Աշխատանք', 'Արդյունքներ', 'Սովորել'];
     final wide = MediaQuery.sizeOf(context).width >= 900;
 
     const destinations = [
@@ -56,6 +59,11 @@ class _StudyShellState extends State<StudyShell> {
         selectedIcon: Icon(Icons.insights),
         label: 'Միջին',
       ),
+      NavigationDestination(
+        icon: Icon(Icons.rocket_launch_outlined),
+        selectedIcon: Icon(Icons.rocket_launch),
+        label: 'Սովորել',
+      ),
     ];
 
     return NavScope(
@@ -64,6 +72,13 @@ class _StudyShellState extends State<StudyShell> {
         appBar: AppBar(
           title: Text(titles[_index]),
           actions: [
+            IconButton(
+              tooltip: 'Պրոֆիլ',
+              icon: const Icon(Icons.account_circle_outlined),
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(builder: (_) => const ProfilePage()),
+              ),
+            ),
             PopupMenuButton<ThemeMode>(
               tooltip: 'Թեմա',
               icon: Icon(_themeIcon(controller.themeMode)),

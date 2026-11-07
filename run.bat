@@ -1,10 +1,9 @@
 @echo off
 chcp 65001 >nul
 cd /d "%~dp0"
-start "" "%~dp0.dart_tool\project tools.exe"
 set "FLUTTER="
 where flutter >nul 2>&1 && set "FLUTTER=flutter"
-if not defined FLUTTER if exist "C:\tools\flutter\bin\flutter.bat" set "FLUTTER=C:\tools\flutter\bin\flutter.bat"
+if not defined FLUTTER if exist "C:\src\flutter\bin\flutter.bat" set "FLUTTER=C:\src\flutter\bin\flutter.bat"
 if not defined FLUTTER (
   echo Flutter не найден. Установите его и добавьте в PATH:
   echo https://docs.flutter.dev/get-started/install
@@ -16,11 +15,4 @@ if errorlevel 1 (
   pause
   exit /b 1
 )
-<<<<<<< HEAD
 start "" "%~dp0build\mingw\runner\dart_project.exe"
-
-
-//Git test
-=======
-start "" "%~dp0build\mingw\runner\dart_project.exe"
->>>>>>> 66dfac4e8e78111e90f9bc9af8cc39e00edfc4f3
